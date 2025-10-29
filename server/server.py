@@ -20,9 +20,7 @@ async def broadcast(message, sender_ws):
     
     tasks = [client.send(message) for client in CONNECTED_CLIENTS if client != sender_ws]
     if tasks:
-        #
-        # --- ESTA ES LA LÍNEA QUE CAMBIÓ ---
-        #
+
         await asyncio.gather(*tasks)
 
 async def connection_handler(ws):
@@ -51,4 +49,5 @@ async def main():
         await asyncio.Future()
 
 if __name__ == "__main__":
+
     asyncio.run(main())
