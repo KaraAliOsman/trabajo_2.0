@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const ws = new WebSocket('ws://localhost:8765');
 
     ws.onopen = () => {
-        // <-- DEPURACIÓN 1: Confirma la conexión
         console.log('¡Conectado al servidor WebSocket! 👍');
     };
 
@@ -23,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     ws.onmessage = (event) => {
-        // <-- DEPURACIÓN 2: Muestra CUALQUIER mensaje que llega
         console.log('===> MENSAJE RECIBIDO:', event.data);
 
         try {
@@ -32,7 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 handleRemoteDraw(data);
             }
         } catch (error) {
-            // <-- DEPURACIÓN 3: Muestra si el JSON que llega está malo
             console.error('Error al parsear JSON:', error, event.data);
         }
     };
@@ -69,7 +66,6 @@ window.addEventListener('DOMContentLoaded', () => {
         };
         
         if (ws.readyState === WebSocket.OPEN) {
-            // <-- DEPURACIÓN 4: Confirma que estamos ENVIANDO datos
             console.log('ENVIANDO DATOS:', JSON.stringify(message));
             ws.send(JSON.stringify(message));
         }
@@ -117,4 +113,5 @@ window.addEventListener('DOMContentLoaded', () => {
     clearButton.addEventListener('click', () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
+
 });
