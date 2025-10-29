@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizarra Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pizarra Compartida</h1>
+    
+    <div class="controls">
+        <span>Color:</span>
+        <button class="color-btn active" data-color="#000000" style="background-color: #000000;"></button>
+        <button class="color-btn" data-color="#FF0000" style="background-color: #FF0000;"></button>
+        <button class="color-btn" data-color="#0000FF" style="background-color: #0000FF;"></button>
+        
+        <button id="clear-local-btn">Limpiar Local</button>
+    </div>
+
+    <canvas id="drawing-canvas" width="800" height="600"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>
